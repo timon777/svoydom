@@ -7,6 +7,7 @@
     <title>Home</title>
     <link rel="stylesheet" href="./libs/slick/slick.css" />
     <link rel="stylesheet" href="./libs/rangeslider/ion.rangeSlider.min.css" />
+    <link rel="stylesheet" href="./libs/fancybox/jquery.fancybox.min.css">
     <link rel="stylesheet" href="css/style.css" />
   </head>
 
@@ -188,12 +189,12 @@
                 успешного бизнеса.
               </div>
               <div class="company__btns">
-                <a class="company__btn company__btn-youtube" href="#">Наш Youtube</a>
-                <a class="company__btn company__btn-instagram" href="#">Наш Instagram</a>
+                <a class="company__btn company__btn-youtube" href="#"><span>Наш</span> Youtube</a>
+                <a class="company__btn company__btn-instagram" href="#"><span>Наш</span> Instagram</a>
               </div>
             </div>
             <div class="company__img">
-              <img src="images/company-girl.png" alt="" />
+              <div class="company__img-inner"><img src="images/company-girl.png" alt="" /></div>
             </div>
           </div>
         </div>
@@ -236,21 +237,21 @@
               </div>
             </div>
             <div class="upgrade__grid">
-              <div class="upgrade__img">
+              <a href="images/company1.png" data-fancybox="gallery" class="upgrade__img">
                 <img src="images/company1.png" alt="" />
-              </div>
-              <div class="upgrade__img">
+              </a>
+              <a href="images/company2.png" data-fancybox="gallery" class="upgrade__img">
                 <img src="images/company2.png" alt="" />
-              </div>
-              <div class="upgrade__img">
+              </a>
+              <a href="images/company3.png" data-fancybox="gallery" class="upgrade__img">
                 <img src="images/company3.png" alt="" />
-              </div>
-              <div class="upgrade__img">
+              </a>
+              <a href="images/company4.png" data-fancybox="gallery" class="upgrade__img">
                 <img src="images/company4.png" alt="" />
-              </div>
-              <div class="upgrade__img">
+              </a>
+              <a href="images/company5.png" data-fancybox="gallery" class="upgrade__img">
                 <img src="images/company5.png" alt="" />
-              </div>
+              </a>
             </div>
           </div>
         </div>
@@ -715,6 +716,7 @@
         myMap.geoObjects.add(talanCollection)
       }
     </script>
+    <script src="./libs/fancybox/jquery.fancybox.min.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>

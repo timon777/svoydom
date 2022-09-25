@@ -142,31 +142,107 @@ $(document).ready(function () {
   })
 
   $('.opening__blocks').slick({
-    slidesToShow:3,
+    slidesToShow: 3,
     slidesToScroll: 1,
     arrows: false,
     dots: true,
     responsive: [
       {
-        
         breakpoint: 991,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
-        }
+        },
       },
       {
         breakpoint: 767,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 1
-        }
-        }
-      ]
-  });
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  })
 
   $('.description__header').click(function () {
     $(this).next().slideToggle()
     $(this).toggleClass('active')
   })
+
+  $('.sdacha__items').slick({
+    slidesToShow: 4,
+    dots: true,
+    arrows: false,
+    loop: false,
+    infinite: false,
+    responsive: [
+      {
+        breakpoint: 1240,
+        settings: {
+          slidesToShow: 3,
+        },
+      },
+      {
+        breakpoint: 991,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 767,
+        settings: {
+          rows: 4,
+          slidesToShow: 1,
+        },
+      },
+    ],
+  })
+
+  let list_appart__block = $('.room__block')
+  list_appart__block.on('click', function () {
+    list_appart__block.removeClass('active')
+    $(this).addClass('active')
+
+    let img = $(this).find('img').attr('src')
+    $('.room__right-image').find('img').attr('src', img)
+    $('.print').attr('src', img)
+    $('.room__download').attr('src', img)
+    $('.room__download').attr('download', img)
+  })
+
+  $('[data-tabs-number]').on('click', function () {
+    if (!$(this).hasClass('active')) {
+      var index = $(this).index()
+      $(this).addClass('active').siblings().removeClass('active')
+      let current = $('[data-tabs-plancontent]').hide().eq(index)
+      current.fadeIn()
+      let appart__block = current.find('.room__block')
+      if (appart__block.length) {
+        $(appart__block[0]).trigger('click')
+      }
+    }
+    return false
+  })
+
+  $('.room__content').each(function () {
+    let valueRoom = $(this).find('.room__block').length
+    if (valueRoom > 34) {
+      $(this).children().removeClass('active')
+    } else {
+      $(this).children().addClass('active')
+    }
+    if (window.matchMedia('(max-width: 767px)').matches) {
+      if (valueRoom > 20) {
+        $(this).children().removeClass('active')
+      } else {
+        $(this).children().addClass('active')
+      }
+    }
+  })
+
+  $('.room__more').click(function () {
+    $(this).parent().addClass('active')
+  })
+
+  $('.image-lightbox').magnificPopup({ type: 'image' })
 })
